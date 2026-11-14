@@ -9,6 +9,7 @@ if [[ -n "$IPV6" ]]; then
     echo "IP guardada correctamente en $ARCHIVO"
 else
     echo "No se encontró ninguna IPv6 pública." >&2
+    rm -f "$ARCHIVO"
     exit 1
 fi
 
