@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ARCHIVO_CONFIG="./config.env"
+ARCHIVO="mi_ipv6.txt"
 
 enviar_mensaje(){
 CONTENIDO=$(cat "$ARCHIVO")
