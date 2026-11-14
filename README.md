@@ -40,3 +40,26 @@ Para ejecutar el proceso manualmente:
 4. Si no detecta ninguna IPv6 pública, elimina el archivo `mi_ipv6.txt` y termina con un error.
 
 
+
+
+
+>>> Faltaria automatizar el ultimo script para que detecte los cambios en la ipv6. 
+
+cat /etc/systemd/system/ipv6-estatus.service
+
+[Unit]
+Description=IPv6 Evento de cambio
+After=network.target
+
+[Service]
+ExecStart=/home/ed/pasamelaip/observar-cambios.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now ipv6-estatus.service
+sudo systemctl status ipv6-estatus.service
